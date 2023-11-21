@@ -1,15 +1,15 @@
 variable "permission_set_name" {
   description = "name given to the permission set"
   type = string
-  default = "ExamplePermissionSet"
+  default = "DevPermissionSet"
 }
 variable "permission_set_desc" {
   description = "Description given for the permission set created"
   type = string
-  default = "Example permission set for AWS SSO"
+  default = "Dev permission set for AWS SSO"
 }
 variable "sso_instance_arn" {
-  description = "instance arn for permission set"
+  description = "instance arn for SSO "
   type = string
   default = "arn:aws:sso:::instance/ssoins-79078a57946c4411"
 }
