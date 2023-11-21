@@ -17,7 +17,7 @@ jobs:
       - name: Backing up AWS credentials
         run: cp -r /home/ssm-user/.aws  /home/ssm-user/.aws_bkp 
       - name: Setup AWS credentials 
-        run: bash /home/runner/assume-role.sh ${{ env.AWS_AccountID }} ${{ env.AWS_IAMrole }}  > /home/ssm-user/.aws/credentials 
+        run: bash /home/runner/assume-role.sh ${{ env.AWS_AccountID }} ${{ env.AWS_IAMrole }}  > /tmp/aws_credentials
       - name: Backing up AWS credentials
         run: mv  /home/ssm-user/.aws_bkp  /home/ssm-user/.aws   
         
