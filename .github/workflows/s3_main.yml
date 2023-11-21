@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - main  #Change to your branch name
+    paths:
+      - ${{ env.ROOT_PATH }}
     
 jobs:
   terraform_deploy:
