@@ -18,6 +18,12 @@ variable "group_id" {
   type = string
   default = "d8f10300-3051-70a3-850e-7bccf7e97f17"
 }
+variable "managed_policy_arn" {
+  description = "The ARN of the IAM policy to attach to the permission set"
+  type        = string
+  default     = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+
+}
 variable "account_id" {
   description = "account id used for sso login"
   type = string
