@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"  # Replace with your desired region
+  region = "us-west-2"  # Replace with your desired region 
 }
 
 #s3 bucket
