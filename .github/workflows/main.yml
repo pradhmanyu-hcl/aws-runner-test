@@ -16,10 +16,6 @@ jobs:
       
       - name: Setup AWS credentials 
         run: bash /home/runner/assume-role.sh ${{ env.AWS_AccountID }} ${{ env.AWS_IAMrole }}  > /tmp/aws_credentials
-      - name: Cleanup AWS credentials
-        run: /tmp/aws_credentials
-   
-        
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
         with:
