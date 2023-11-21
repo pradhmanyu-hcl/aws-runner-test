@@ -10,7 +10,7 @@ on:
     tags:
       - deploy-to-production
     paths:
-      - s3/**/*
+      - s3/**
     
 jobs:
   terraform_deploy:
