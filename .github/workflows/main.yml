@@ -16,12 +16,13 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
-        run: pip install boto3
+      - name: Change directory to /etc
+        working-directory: /etc/actions-runner
+
 
       - name: Run script
         run: |
-          cd /etc/actions-runner | ./assume-role.sh ACCOUNT_ID ROLE_NAME >> abc.txt
+          ./assume-role.sh ACCOUNT_ID ROLE_NAME >> abc.txt
           
 
     
