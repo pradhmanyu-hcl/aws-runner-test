@@ -21,10 +21,12 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           auto-approve: true
+      - name: Init Terraform changes
+        run: /usr/local/bin/terraform init
       - name: Plan Terraform changes
-        run: terraform plan
+        run: /usr/local/bin/terraform plan
       - name: Apply Terraform changes
-        run: terraform apply
+        run: /usr/local/bin/terraform apply
         
       - name: Cleanup AWS credentials
         run: rm -f /tmp/aws_credentials
