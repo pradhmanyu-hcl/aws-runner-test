@@ -30,11 +30,27 @@ jobs:
         run: /usr/local/bin/terraform init
         working-directory: ${{ env.ROOT_PATH }}
       - name: Plan Terraform changes
-        run: /usr/local/bin/terraform plan
+        run: /usr/local/bin/terraform plan -out saved_plan
         working-directory: ${{ env.ROOT_PATH }}
-    
+      #################################################
+      - name: Submit plan for approval
+        uses: jbergknoff/github-action-wait-for-terraform-plan-approval@v1
+        id: submit_plan
+        with:
+          command: submit
+          plan_contents: ${{steps.plan.outputs.stdout}}
+
+    # Snip: send a Slack DM asking somebody to visit `steps.submit_plan.outputs.approval_prompt_url` to approve
+
+      - name: Wait for approval
+        uses: jbergknoff/github-action-wait-for-terraform-plan-approval@v1
+        with:
+          command: wait
+          plan_id: ${{steps.submit_plan.outputs.plan_id}}
+          timeout-minutes: 10
+    #################################################
       - name: Apply Terraform changes
-        run: /usr/local/bin/terraform apply
+        run: /usr/local/bin/terraform apply -out saved_plan
         working-directory: ${{ env.ROOT_PATH }}
         
       - name: Cleanup AWS credentials
