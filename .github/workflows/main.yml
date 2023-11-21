@@ -3,15 +3,47 @@ name: Assume role script
 on:
   push:
     branches: [ main ]
-
+env:
+  #ROOT_PATH: '${{github.workspace}}/elasticbeanstalk'
+  ROOT_PATH: './Modules/ecs'
 jobs:
   assume-role:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Execute shell script
-        run: bash /etc/actions-runner/assume-role.sh 11111111111 admin_1
-
-    
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+       # with:
+        #  terraform_version: 0.16.2  # Specify your Terraform version  
+      - name: FW details
+        # run: cd elasticbeanstalk | pwd
+        #Test VPC in SBX account
+        #run: cd ecs | pwd
+        run: pwd
+      - name: Initialize Terraform
+        run: /usr/local/bin/terraform init
+        working-directory: ${{ env.ROOT_PATH }}
+      # To create resources, the following cod will create plan.  This section need to be commented to destroy the resources.
+      - name: Planning Infrastructure
+        run: /usr/local/bin/terraform plan
+        working-directory: ${{ env.ROOT_PATH }}
+  terraform_apply:
+      name: 'terraform apply'
+      needs: [env-configure]
+      runs-on: tmo-runner-sbx-01
+      environment: aws_us_gov
+      steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Initialize Terraform
+        run: /usr/local/bin/terraform init
+        working-directory: ${{ env.ROOT_PATH }}
+      # - name: Deploy Infrastructure
+      #   run: /usr/local/bin/terraform apply -auto-approve
+      #   working-directory: ${{ env.ROOT_PATH }}
+ 
+      - name: Destroy Infrastructure
+        run: /usr/local/bin/terraform destroy -auto-approve
+        working-directory: ${{ env.ROOT_PATH }}
