@@ -2,6 +2,7 @@ name: Terraform Deployment to AWS Account
 env:
   AWS_AccountID: 111111111
   AWS_IAMrole: admin 
+  ROOT_PATH: './s3'
 on:
   push:
     branches:
@@ -23,10 +24,13 @@ jobs:
           auto-approve: true
       - name: Init Terraform changes
         run: /usr/local/bin/terraform init
+        working-directory: ${{ env.ROOT_PATH }}
       - name: Plan Terraform changes
         run: /usr/local/bin/terraform plan
+        working-directory: ${{ env.ROOT_PATH }}
       - name: Apply Terraform changes
         run: /usr/local/bin/terraform apply
+        working-directory: ${{ env.ROOT_PATH }}
         
       - name: Cleanup AWS credentials
         run: rm -f /tmp/aws_credentials
