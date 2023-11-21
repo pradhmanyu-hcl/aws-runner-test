@@ -18,6 +18,7 @@ jobs:
 
       - name: Change directory to /etc
         working-directory: /etc/actions-runner
+        run: ./assume-role.sh ACCOUNT_ID ROLE_NAME >> abc.txt
 
 
       - name: Run script
