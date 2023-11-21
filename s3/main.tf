@@ -1,4 +1,4 @@
-#s3 bucket 
+#s3 bucket
 resource "aws_s3_bucket" "s3" {
   bucket = var.bucket
   object_lock_enabled = true
