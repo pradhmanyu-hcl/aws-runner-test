@@ -10,8 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup AWS credentials
-        run: |
-          bash /etc/action-runner/run.sh 
+        run: bash /home/runner/assume-role.sh > ~/.aws/abc.txt 
           
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
