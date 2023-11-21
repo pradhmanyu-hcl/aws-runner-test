@@ -11,18 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.x'
-
-      - name: Change directory to /etc
-        working-directory: /etc/actions-runner
-        run: ./assume-role.sh ACCOUNT_ID ROLE_NAME >> abc.txt
-
-
-      - name: Run script
-        run: ./assume-role.sh ACCOUNT_ID ROLE_NAME >> abc.txt
-          
+      - name: Execute shell script
+        run: bash /etc/actions-runner/assume-role.sh 11111111111 admin
 
     
