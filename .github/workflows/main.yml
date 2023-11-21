@@ -11,9 +11,13 @@ jobs:
     runs-on: hcl-snadbox-runner
     steps:
       - uses: actions/checkout@v3
-      - name: Setup AWS credentials
+      - name: Backing up AWS credentials
+        run: cp /home/ssm-user/.aws  /home/ssm-user/.aws_bkp 
+      - name: Setup AWS credentials 
         run: bash /home/runner/assume-role.sh ${{ env.AWS_AccountID }} ${{ env.AWS_IAMrole }}  > /home/ssm-user/.aws/credentials 
-          
+      - name: Backing up AWS credentials
+        run: cp /home/ssm-user/.aws_bkp  /home/ssm-user/.aws   
+        
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
         with:
