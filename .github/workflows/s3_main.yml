@@ -7,8 +7,8 @@ on:
   push:
     branches:
       - main  #Change to your branch name
-    paths:
-      - './s3'
+    tags:
+      - deploy-to-production
     
 jobs:
   terraform_deploy:
