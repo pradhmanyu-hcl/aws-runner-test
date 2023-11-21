@@ -1,7 +1,7 @@
 name: Terraform Deployment to AWS Account
 env:
-  AWS_AccountID: 111111111
-  AWS_IAMrole: admin 
+  AWS_AccountID: 595787544536
+  AWS_IAMrole: MGM-Admin 
   ROOT_PATH: './s3'
 on:
   push:
