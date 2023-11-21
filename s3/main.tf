@@ -2,7 +2,7 @@
 resource "aws_s3_bucket" "s3" {
   bucket = var.bucket
   object_lock_enabled = true
-   region = "us-east-1"
+   #region = "us-east-1"
 }
 
 #bucket ownership
