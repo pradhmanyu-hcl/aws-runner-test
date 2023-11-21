@@ -30,13 +30,13 @@ jobs:
         run: /usr/local/bin/terraform init
         working-directory: ${{ env.ROOT_PATH }}
       - name: Plan Terraform changes
-        run: /usr/local/bin/terraform plan -out saved_plan
+        run: /usr/local/bin/terraform plan
         working-directory: ${{ env.ROOT_PATH }}
     #################################################
     
     #################################################
       - name: Apply Terraform changes
-        run: /usr/local/bin/terraform apply -out saved_plan
+        run: /usr/local/bin/terraform apply -auto-approve
         working-directory: ${{ env.ROOT_PATH }}
         
       - name: Cleanup AWS credentials
