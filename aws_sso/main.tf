@@ -17,6 +17,6 @@ resource "aws_ssoadmin_account_assignment" "account_assignment" {
 
 #Attaching Policy to permissionSets
 resource "aws_ssoadmin_managed_policy_attachment" "policy_attachment" {
-  permission_set_name = aws_ssoadmin_permission_set.permission_set.arn
+  permission_set_name = aws_ssoadmin_permission_set.permission_set_name.name
   managed_policy_arn  = var.managed_policy_arn
 }
