@@ -13,7 +13,7 @@ resource "aws_s3_bucket_ownership_controls" "s3own" {
   }
 }
 
-#bucket acl
+#bucket acl 
 resource "aws_s3_bucket_acl" "acl" {
   depends_on = [ aws_s3_bucket_ownership_controls.s3own ]
   bucket = aws_s3_bucket.s3.id
