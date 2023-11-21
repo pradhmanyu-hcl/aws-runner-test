@@ -1,6 +1,6 @@
 terraform{
     backend "s3" {
-        bucket = "sample-bucket-10232023"
+        bucket = "tfstste-backend-tmo"
         key = "sso.tfstate"
         region = "us-west-2"
         profile = "default"
