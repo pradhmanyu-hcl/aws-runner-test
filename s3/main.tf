@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "s3" {
   force_destroy = true
 }
 
-#bucket ownership 
+#bucket ownership
 resource "aws_s3_bucket_ownership_controls" "s3own" {
   bucket = aws_s3_bucket.s3.id
   rule {
