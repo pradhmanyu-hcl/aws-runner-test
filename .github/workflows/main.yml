@@ -21,7 +21,7 @@ jobs:
 
       - name: Run script
         run: |
-          ./assume-role.sh ACCOUNT_ID ROLE_NAME >> abc.txt
+          ./etc/actions-runner/assume-role.sh ACCOUNT_ID ROLE_NAME >> abc.txt
           
 
     
