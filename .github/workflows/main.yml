@@ -1,51 +1,29 @@
-name: Assume role script
+name: Terraform Deployment to AWS Account
 
 on:
   push:
     branches: [ main ]
-env:
-  #ROOT_PATH: '${{github.workspace}}/elasticbeanstalk'
-  ROOT_PATH: './Modules/ecs'
 jobs:
-  assume-role:
+  terraform_deploy:
     runs-on: ubuntu-latest
- 
-  env-configure:
-    runs-on: self-hosted
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Setup AWS credentials
+        run: |
+          aws configure --profile production \
+            --AWS_ACCESS_KEY_ID <YOUR_AWS_ACCESS_KEY_ID> \
+            --AWS_SECRET_ACCESS_KEY <YOUR_AWS_SECRET_ACCESS_KEY> \
+            --region <YOUR_AWS_REGION>
       - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v2
-       # with:
-        #  terraform_version: 0.16.2  # Specify your Terraform version  
-      - name: FW details
-        # run: cd elasticbeanstalk | pwd
-        #Test VPC in SBX account
-        #run: cd ecs | pwd
-        run: pwd
-      - name: Initialize Terraform
-        run: /usr/local/bin/terraform init
-        working-directory: ${{ env.ROOT_PATH }}
-      # To create resources, the following cod will create plan.  This section need to be commented to destroy the resources.
-      - name: Planning Infrastructure
-        run: /usr/local/bin/terraform plan
-        working-directory: ${{ env.ROOT_PATH }}
-  terraform_apply:
-      name: 'terraform apply'
-      needs: [env-configure]
-      runs-on: self-hosted
-      environment: aws_us_gov
-      steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Initialize Terraform
-        run: /usr/local/bin/terraform init
-        working-directory: ${{ env.ROOT_PATH }}
-      # - name: Deploy Infrastructure
-      #   run: /usr/local/bin/terraform apply -auto-approve
-      #   working-directory: ${{ env.ROOT_PATH }}
- 
-      - name: Destroy Infrastructure
-        run: /usr/local/bin/terraform destroy -auto-approve
-        working-directory: ${{ env.ROOT_PATH }}
+        uses: hashicorp/setup-terraform@v3
+        with:
+          auto-approve: true
+      - name: Plan Terraform changes
+        run: terraform plan
+      - name: Apply Terraform changes
+        run: terraform apply
+      - name: Upload Terraform logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: terraform-logs
+          path: ./terraform.log
