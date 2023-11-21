@@ -9,7 +9,9 @@ env:
 jobs:
   assume-role:
     runs-on: ubuntu-latest
-
+ 
+  env-configure:
+    runs-on: self-hosted
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -32,7 +34,7 @@ jobs:
   terraform_apply:
       name: 'terraform apply'
       needs: [env-configure]
-      runs-on: tmo-runner-sbx-01
+      runs-on: self-hosted
       environment: aws_us_gov
       steps:
       - name: Checkout Repository
