@@ -6,8 +6,7 @@ on:
   push:
     branches:
       - main  #Change to your branch name
-    paths:
-      - s3/**/*
+    
 jobs:
   terraform_deploy:
     runs-on: hcl-snadbox-runner
