@@ -6,7 +6,7 @@ resource "aws_ssoadmin_permission_set" "permission_set" {
 }
  
 # Create an AWS SSO account assignment for a group
-resource "aws_ssoadmin_account_assignment" "example_account_assignment" {
+resource "aws_ssoadmin_account_assignment" "account_assignment" {
   instance_arn        = var.sso_instance_arn
   target_type         = "AWS_ACCOUNT"
   target_id           = var.account_id
