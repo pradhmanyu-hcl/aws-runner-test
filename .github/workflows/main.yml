@@ -9,8 +9,11 @@ on:
 jobs:
   terraform_deploy:
     runs-on: hcl-snadbox-runner
+    env:
+        steps.run.outputs: false
     steps:
       - uses: actions/checkout@v3
+      
       - name: Backing up AWS credentials
         run: cp -r /home/ssm-user/.aws  /home/ssm-user/.aws_bkp 
       - name: Setup AWS credentials 
