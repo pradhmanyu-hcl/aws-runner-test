@@ -14,12 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Backing up AWS credentials
-        run: cp -r /home/ssm-user/.aws  /home/ssm-user/.aws_bkp 
       - name: Setup AWS credentials 
         run: bash /home/runner/assume-role.sh ${{ env.AWS_AccountID }} ${{ env.AWS_IAMrole }}  > /tmp/aws_credentials
-      - name: Backing up AWS credentials
-        run: mv  /home/ssm-user/.aws_bkp  /home/ssm-user/.aws   
+      - name: Cleanup AWS credentials
+        run: /tmp/aws_credentials
+   
         
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
@@ -29,8 +28,6 @@ jobs:
         run: terraform plan
       - name: Apply Terraform changes
         run: terraform apply
-      - name: Upload Terraform logs
-        uses: actions/upload-artifact@v3
-        with:
-          name: terraform-logs
-          path: ./terraform.log
+        
+      - name: Cleanup AWS credentials
+        run: rm -f /tmp/aws_credentials
