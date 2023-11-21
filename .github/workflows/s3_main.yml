@@ -9,6 +9,8 @@ on:
       - main  #Change to your branch name
     tags:
       - deploy-to-production
+    paths:
+      - s3/**/*
     
 jobs:
   terraform_deploy:
