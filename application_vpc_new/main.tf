@@ -1,6 +1,6 @@
 #Vpc
 module "vpc" {
-  source = "../Modules/vpc"
+  source = "../Modules/vpc_new"
   vpc_cidr = var.vpc_cidr
   vpc_sec_cidr = var.vpc_cidr
   role_name = var.role_name
@@ -13,7 +13,7 @@ module "vpc" {
 
 #Subnets
 module "subnet" {
-  source = "../Modules/subnet"
+  source = "../Modules/subnet_new"
   vpc_id = module.vpc.vpc_id
   depends_on = [ module.vpc.sec_cidr ]
   availability_zone = var.availability_zone
