@@ -39,5 +39,8 @@ jobs:
         run: /usr/local/bin/terraform apply -auto-approve
         working-directory: ${{ env.ROOT_PATH }}
         
-      - name: Cleanup AWS credentials
-        run: rm -f /tmp/aws_credentials
+      - name: Cleanup AWS credentials -1
+        run: rm -f /home/ssm-user/.aws/credentials
+
+      - name: Cleanup AWS credentials -1
+        run: rm -f /home/ssm-user/.aws/credentials
