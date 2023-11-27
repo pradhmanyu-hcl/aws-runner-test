@@ -3,7 +3,7 @@ variable "region" {
   type = string
 }
 
-#vpc
+#vpc 
 variable "vpc_cidr" {
   description = "cidr block for vpc"
   type = string
