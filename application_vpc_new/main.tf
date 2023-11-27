@@ -2,7 +2,7 @@
 module "vpc" {
   source = "../Modules/vpc_new"
   vpc_cidr = var.vpc_cidr
-  vpc_sec_cidr = var.vpc_cidr
+  vpc_sec_cidr = var.vpc_sec_cidr
   role_name = var.role_name
   loggroup_name = var.loggroup_name
   retention_days = var.retention_days

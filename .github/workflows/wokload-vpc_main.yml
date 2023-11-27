@@ -36,7 +36,7 @@ jobs:
     
     #################################################
       - name: Apply Terraform changes
-        run: /usr/local/bin/terraform destroy -auto-approve
+        run: /usr/local/bin/terraform apply -auto-approve
         working-directory: ${{ env.ROOT_PATH }}
         
 
