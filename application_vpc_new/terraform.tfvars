@@ -12,9 +12,9 @@ iam_policy     = "vpcflpolicy"
 
 #subnet
 availability_zone = [ "us-west-2a","us-west-2b" ]
-pusnet_cidr = [ "100.1.1.0/24", "100.1.2.0/24" ]
-pusnet_tags = [ "awsgov_pusnet1_usw_ccoe_prd_001","awsgov_pusnet2_usw_ccoe_prd_001" ]
 prsnet_cidr = [ "100.0.3.0/24", "100.0.5.0/24" ]
 prsnet_tags = [ "awsgov_prsnet1_usw_ccoe_prd_001","awsgov_prsnet2_usw_ccoe_prd_001" ]
 dbsnet_cidr = [ "100.0.6.0/24","100.0.7.0/24" ]
 dbsnet_tags = [ "awsgov_dbsnet1_usw_ccoe_prd_001","awsgov_dbsnet2_usw_ccoe_prd_001" ]
+pusnet_cidr = [ "100.1.1.0/24", "100.1.2.0/24" ]
+pusnet_tags = [ "awsgov_pusnet1_usw_ccoe_prd_001","awsgov_pusnet2_usw_ccoe_prd_001" ]
