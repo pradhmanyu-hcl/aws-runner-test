@@ -10,7 +10,7 @@ on:
     tags:
       - deploy-to-production
     paths:
-      - application_vpc_/**
+      - application_vpc/**
     
 jobs:
   terraform_deploy:
