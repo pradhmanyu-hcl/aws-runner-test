@@ -1,7 +1,7 @@
 region       = "us-west-2"
 
 #vpc
-vpc_cidr     = "172.0.0.0/16"
+vpc_cidr     = "100.1.0.0/16"
 vpc_sec_cidr = "100.0.0.0/16"
 tags         = "awsgov_vpc_usw_ccoe_prd_001"
 role_name    = "vpcfl"
@@ -12,7 +12,7 @@ iam_policy     = "vpcflpolicy"
 
 #subnet
 availability_zone = [ "us-west-2a","us-west-2b" ]
-pusnet_cidr = [ "172.0.1.0/24", "172.0.2.0/24" ]
+pusnet_cidr = [ "100.1.1.0/24", "100.1.2.0/24" ]
 pusnet_tags = [ "awsgov_pusnet1_usw_ccoe_prd_001","awsgov_pusnet2_usw_ccoe_prd_001" ]
 prsnet_cidr = [ "100.0.3.0/24", "100.0.5.0/24" ]
 prsnet_tags = [ "awsgov_prsnet1_usw_ccoe_prd_001","awsgov_prsnet2_usw_ccoe_prd_001" ]
