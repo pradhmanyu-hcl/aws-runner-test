@@ -2,7 +2,7 @@ name: Terraform Deployment to AWS Account
 env:
   AWS_AccountID: 595787544536
   AWS_IAMrole: MGM-Admin 
-  ROOT_PATH: './application_vpc_new'
+  ROOT_PATH: './application_vpc'
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ on:
     tags:
       - deploy-to-production
     paths:
-      - application_vpc_new/**
+      - application_vpc_/**
     
 jobs:
   terraform_deploy:
