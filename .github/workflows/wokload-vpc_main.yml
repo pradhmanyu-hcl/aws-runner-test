@@ -14,7 +14,7 @@ on:
     
 jobs:
   terraform_deploy:
-    runs-on: hcl-snadbox-runner
+    runs-on: self-hosted
     env:
         steps.run.outputs: false
     steps:
