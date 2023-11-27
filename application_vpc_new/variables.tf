@@ -1,5 +1,5 @@
 variable "region" {
-  description = "Region name in which the vpc need to be created"
+  description = "Region name in which the vpc need to be created."
   type = string
 }
 
