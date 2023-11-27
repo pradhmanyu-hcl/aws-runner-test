@@ -11,7 +11,7 @@ module "vpc" {
   iam_policy = var.iam_policy
 }
 
-#Subnets
+#Subnets 
 module "subnet" {
   source = "../Modules/subnet"
   vpc_id = module.vpc.vpc_id
