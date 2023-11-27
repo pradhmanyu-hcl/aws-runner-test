@@ -10,7 +10,7 @@ retention_days = 365
 flow_logs_tags = "awsgov_vpcfl_usw_ccoe_prd_001"
 iam_policy     = "vpcflpolicy"
 
-#subnet 
+#subnet
 availability_zone = [ "us-west-2a","us-west-2b" ]
 pusnet_cidr = [ "100.1.1.0/24", "100.1.2.0/24" ]
 pusnet_tags = [ "awsgov_pusnet1_usw_ccoe_prd_001","awsgov_pusnet2_usw_ccoe_prd_001" ]
