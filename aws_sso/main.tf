@@ -7,7 +7,7 @@ resource "aws_ssoadmin_permission_set" "example_permission_set" {
 }
 
 # Attach Group to Permission Set
-resource "aws_ssoadmin_instance_access_control_attribute" "sso_group_permission_set_attachment" {
+resource "aws_ssoadmin_instance_access_control_attributes" "sso_group_permission_set_attachment" {
   instance_arn   = var.sso_instance_arn
   access_control_attribute_name = "aws:PrincipalTag/GroupName"
   key            = var.group_name
@@ -22,7 +22,7 @@ resource "aws_ssoadmin_managed_policy_attachment" "sso_managed_policy_attachment
 }
 
 ## Update Group access level and Permission Set
-#resource "aws_ssoadmin_instance_access_control_attribute" "sso_group_permission_set_update" {
+#resource "aws_ssoadmin_instance_access_control_attributes" "sso_group_permission_set_update" {
 #  instance_arn   = var.sso_instance_arn
 #  access_control_attribute_name = "aws:PrincipalTag/GroupName"
 #  key            = var.group_name
@@ -30,7 +30,7 @@ resource "aws_ssoadmin_managed_policy_attachment" "sso_managed_policy_attachment
 #}
  
 ## Revoke Access by Detaching Group from Permission Set
-#resource "aws_ssoadmin_instance_access_control_attribute" "sso_group_permission_set_detachment" {
+#resource "aws_ssoadmin_instance_access_control_attributes" "sso_group_permission_set_detachment" {
 #  instance_arn   = var.sso_instance_arn
 #  access_control_attribute_name = "aws:PrincipalTag/GroupName"
 #  key            = var.group_name
