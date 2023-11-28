@@ -1,5 +1,5 @@
 
-# Create an AWS SSO permission set
+# Create an AWS SSO permission set 
 resource "aws_ssoadmin_permission_set" "example_permission_set" {
   name        = var.permission_set_name
   description = var.permission_set_desc
