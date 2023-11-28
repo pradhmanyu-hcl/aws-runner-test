@@ -8,7 +8,7 @@ resource "aws_ssoadmin_permission_set" "example_permission_set" {
 
 # Attach Group to Permission Set
 resource "aws_ssoadmin_instance_access_control_attribute_configuration" "sso_group_permission_set_attachment" {
-  instance_arn   = aws_ssoadmin_instance.sso_instance.arn
+  instance_arn   = var.sso_instance_arn
   access_control_attribute_name = "aws:PrincipalTag/GroupName"
   key            = var.group_name
   value          = aws_ssoadmin_permission_set.example_permission_set.name
