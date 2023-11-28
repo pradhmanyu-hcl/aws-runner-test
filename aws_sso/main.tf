@@ -20,13 +20,13 @@ resource "aws_ssoadmin_managed_policy_attachment" "sso_managed_policy_attachment
   managed_policy_arn = var.managed_policy_arn  # Example policy, change as needed
 }
 
-# Update Group access level and Permission Set
-resource "aws_ssoadmin_instance_access_control_attribute_configuration" "sso_group_permission_set_update" {
-  instance_arn   = var.sso_instance_arn
-  access_control_attribute_name = "aws:PrincipalTag/GroupName"
-  key            = var.group_name
-  value          = aws_ssoadmin_permission_set.example_permission_set.name
-}
+## Update Group access level and Permission Set
+#resource "aws_ssoadmin_instance_access_control_attribute_configuration" "sso_group_permission_set_update" {
+#  instance_arn   = var.sso_instance_arn
+#  access_control_attribute_name = "aws:PrincipalTag/GroupName"
+#  key            = var.group_name
+#  value          = aws_ssoadmin_permission_set.example_permission_set.name
+#}
  
 ## Revoke Access by Detaching Group from Permission Set
 #resource "aws_ssoadmin_instance_access_control_attribute_configuration" "sso_group_permission_set_detachment" {
