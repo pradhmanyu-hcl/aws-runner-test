@@ -10,8 +10,10 @@ resource "aws_ssoadmin_permission_set" "example_permission_set" {
 resource "aws_ssoadmin_instance_access_control_attributes" "sso_group_permission_set_attachment" {
   instance_arn   = var.sso_instance_arn
   access_control_attribute_name = "aws:PrincipalTag/GroupName"
+  attribute{
   key            = var.group_name
   value          = aws_ssoadmin_permission_set.example_permission_set.name
+  }
 }
 
 # Attach AWS SSO Managed Policy to Permission Set
