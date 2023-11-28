@@ -14,7 +14,7 @@ resource "aws_ssoadmin_instance_access_control_attributes" "sso_group_permission
   key            = var.group_name
   value    {
     source      = [aws_ssoadmin_permission_set.example_permission_set.name]
-  }
+    }
   }
 }
 
@@ -28,17 +28,25 @@ resource "aws_ssoadmin_managed_policy_attachment" "sso_managed_policy_attachment
 ## Update Group access level and Permission Set
 #resource "aws_ssoadmin_instance_access_control_attributes" "sso_group_permission_set_update" {
 #  instance_arn   = var.sso_instance_arn
-#  access_control_attribute_name = "aws:PrincipalTag/GroupName"
+## access_control_attribute_name = "aws:PrincipalTag/GroupName"
+#  attribute {
 #  key            = var.group_name
-#  value          = aws_ssoadmin_permission_set.example_permission_set.name
+#  value  {
+#      source    = [aws_ssoadmin_permission_set.example_permission_set.name]
+#    }
+#  }
 #}
  
 ## Revoke Access by Detaching Group from Permission Set
 #resource "aws_ssoadmin_instance_access_control_attributes" "sso_group_permission_set_detachment" {
 #  instance_arn   = var.sso_instance_arn
-#  access_control_attribute_name = "aws:PrincipalTag/GroupName"
+## access_control_attribute_name = "aws:PrincipalTag/GroupName"
+#  attribute {
 #  key            = var.group_name
-#  value          = ""  # Detaching the permission set by setting an empty value
+#  value {
+#      source   = [""]  # Detaching the permission set by setting an empty value
+#     }
+#   }
 #}
 
 # Create an AWS SSO account assignment for a group 
