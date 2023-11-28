@@ -5,6 +5,7 @@ resource "aws_ssoadmin_permission_set" "example_permission_set" {
   instance_arn = var.sso_instance_arn
 }
 
+
 ## Attach Group to Permission Set
 #resource "aws_ssoadmin_instance_access_control_attributes" "sso_group_permission_set_attachment" {
 #  instance_arn   = var.sso_instance_arn
