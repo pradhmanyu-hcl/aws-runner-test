@@ -1,7 +1,7 @@
 variable "permission_set_name" {
   description = "name given to the permission set"
   type = string
-  default = "Sec-PermissionSet"
+  default = "Sample-PermissionSet"
 }
 variable "permission_set_desc" {
   description = "Description given for the permission set created"
