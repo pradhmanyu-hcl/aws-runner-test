@@ -13,8 +13,8 @@ variable "sso_instance_arn" {
   type = string
   default = "arn:aws:sso:::instance/ssoins-79078a57946c4411"
 }
-variable "group_id" {
-  description = "group id for sso login. Currently using for group (AWS-S3-RO)"
+variable "group_name" {
+  description = "group id for sso login."
   type = string
   default = "d8f10300-3051-70a3-850e-7bccf7e97f17"
 }
@@ -28,3 +28,13 @@ variable "region" {
   type = string
   default = "us-west-2"
 }
+variable "managed_policy_arn" {
+  description = "ARN of the AWS managed policy to attach"
+  type = string
+  default     = "arn:aws:iam::aws:policy/AdministratorAccess"
+}
+
+#ARN for admin access= "arn:aws:iam::aws:policy/AdministratorAccess"
+#ARN for read only access= "arn:aws:iam::aws:policy/ReadOnlyAccess"
+#ARN for developer access= "arn:aws:iam::aws:policy/AWSProtonDeveloperAccess"
+#ARN for network admin access= "arn:aws:iam::aws:policy/job-function/NetworkAdministrator"
