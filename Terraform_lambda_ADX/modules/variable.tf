@@ -20,7 +20,7 @@ variable "lambda_function_handler" {
 variable "lambda_function_runtime" {
   type        = string
   default     = "python3.11"
-}
+} 
 
 variable "prefix" {
   type    = string
