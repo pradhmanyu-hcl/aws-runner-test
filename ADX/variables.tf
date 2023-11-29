@@ -1,7 +1,7 @@
 variable "bucket_name" {
   description = "s3 bucket from which lambda will receive notifications"
   type = string
-  default = "testbucket11152023"
+  default = "test-runner-1111113prad4hthst"
 }
 variable "region" {
   description = "aws region"
