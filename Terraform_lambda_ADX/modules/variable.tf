@@ -12,7 +12,6 @@ variable "iam" {
   type = string
   default = "eventbrg-iam"  
 }
-
 variable "lambda_function_handler" {
   type        = string
   default     = "hello-python.lambda_handler"
@@ -20,7 +19,7 @@ variable "lambda_function_handler" {
 variable "lambda_function_runtime" {
   type        = string
   default     = "python3.11"
-}
+} 
 
 variable "prefix" {
   type    = string
@@ -72,10 +71,10 @@ variable "region" {
 
 variable "source_arn" {
   type = string
-  default = "arn:aws:s3:::my-terraform-state-uday"  
+  default = "arn:aws:s3:::aws-cloudtrail-logs-595787544536-62d76429"
 }
 
 variable "bucket_name" {
   type = string
-  default = "my-terraform-state-uday"
+  default = "aws-cloudtrail-logs-595787544536-62d76429"
 }
