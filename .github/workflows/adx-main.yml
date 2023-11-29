@@ -2,7 +2,7 @@ name: Terraform Deployment to AWS Account
 env:
   AWS_AccountID: 595787544536
   AWS_IAMrole: MGM-Admin 
-  ROOT_PATH: './aws_sso'
+  ROOT_PATH: './aws_sTerraform_lambda_ADX'
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ on:
     tags:
       - deploy-to-management
     paths:
-      - aws_sso/**
+      - Terraform_lambda_ADX/**
     
 jobs:
   terraform_deploy:
