@@ -1,0 +1,43 @@
+name: Terraform Deployment to AWS Account
+env:
+  AWS_AccountID: 595787544536
+  AWS_IAMrole: MGM-Admin 
+  ROOT_PATH: './aws_sso'
+on:
+  push:
+    branches:
+      - main  #Change to your branch name
+    tags:
+      - deploy-to-management
+    paths:
+      - aws_sso/**
+    
+jobs:
+  terraform_deploy:
+    runs-on: self-hosted
+    env:
+        steps.run.outputs: false
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup AWS credentials 
+        run: bash /home/runner/assume-role.sh ${{ env.AWS_AccountID }} ${{ env.AWS_IAMrole }}  > /tmp/aws_credentials
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+         auto-approve: true
+      - name: Init Terraform changes
+        run: /usr/local/bin/terraform init
+        working-directory: ${{ env.ROOT_PATH }}
+      - name: Plan Terraform changes
+        run: /usr/local/bin/terraform plan
+        working-directory: ${{ env.ROOT_PATH }}
+    #################################################
+    
+    #################################################
+      - name: Apply Terraform changes
+        run: /usr/local/bin/terraform apply -auto-approve
+        working-directory: ${{ env.ROOT_PATH }}
+        
+      - name: Cleanup AWS credentials
+        run: rm -f /tmp/aws_credentials
