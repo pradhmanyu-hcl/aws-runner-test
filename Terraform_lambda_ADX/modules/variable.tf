@@ -12,7 +12,6 @@ variable "iam" {
   type = string
   default = "eventbrg-iam"  
 }
-
 variable "lambda_function_handler" {
   type        = string
   default     = "hello-python.lambda_handler"
