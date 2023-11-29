@@ -1,5 +1,5 @@
 variable "bucket_name" {
-  description = "s3 bucket from which lambda will receive notifications"
+  description = "s3 bucket from  which lambda will receive notifications"
   type = string
   default = "test-runner-1111113prad4hthst"
 }
