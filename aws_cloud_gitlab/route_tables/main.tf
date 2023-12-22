@@ -28,14 +28,21 @@ resource "aws_route" "private_nat_gateway" {
   nat_gateway_id = aws_nat_gateway.natgw.id[*]
 }
 
-# Public Route Table ssociation with Public Subnet
-resource "aws_route_table_association" "public_association" {
-  subnet_id      = var.public_subnet_id
+resource "aws_route_table_association" "pusnet_public_association" {
+  count = length(aws_subnet.pusnet)
+  subnet_id = aws_subnet.pusnet[count.index].id
   route_table_id = aws_route_table.public.id
 }
-
-# Associate Private Route Table with Private Subnet
-resource "aws_route_table_association" "private_association" {
-  subnet_id      = var.private_subnet_id
+ 
+ 
+resource "aws_route_table_association" "prsnet_private_association" {
+  count = length(aws_subnet.prsnet)
+  subnet_id = aws_subnet.prsnet[count.index].id
+  route_table_id = aws_route_table.private.id
+}
+ 
+resource "aws_route_table_association" "dbsnet_private_association" {
+  count = length(aws_subnet.dbsnet)
+  subnet_id = aws_subnet.dbsnet[count.index].id
   route_table_id = aws_route_table.private.id
 }
