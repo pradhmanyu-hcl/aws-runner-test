@@ -17,7 +17,7 @@ resource "aws_iam_role" "lambda_iam" {
 EOF
 }
 
-#lambda role policy
+#lambda role policy 
 resource "aws_iam_role_policy" "s3" {
   name = var.lambda_iam_policy_name
   role = aws_iam_role.lambda_iam.id
