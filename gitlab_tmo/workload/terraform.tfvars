@@ -45,7 +45,7 @@ ami                             = "ami-0083072ac3e41100a"
 instance_type                   = "c5.large"
 prsubnet_id                     = [ "value","value" ]
 delete_on_termination           = false
-ec2_tags                        =[ "awsgov_ec2rails1_usw_ccoe_prd_001","awsgov_ec2rails2_usw_ccoe_prd_001","awsgov_ec2rails3_usw_ccoe_prd_001"]
+ec2_tags                        =[ "awsvmlnperail01","awsvmlnperail02","awsvmlnperail03"]
 /*launch_conf_name_rails          = "ec2-rails-launch-configuration"
 autoscaling_group_name_rails    = "ec2-rails-asg"
 min_size_rails                  = 2
@@ -70,7 +70,7 @@ instance_profile_praefect          = "ec2praefect-ssm-profile"
 praefect_ami                       = "ami-0083072ac3e41100a"
 praefect_instance_type             = "c5.large"
 praefect_delete_on_termination     = false
-ec2praefect_tags                   = [ "awsgov_ec2praefect1_usw_ccoe_prd_001","awsgov_ec2praefect2_usw_ccoe_prd_001","awsgov_ec2praefect3_usw_ccoe_prd_001"]
+ec2praefect_tags                   = [ "awsvmlnpeprae01","awsvmlnpeprae02","awsvmlnpeprae03"]
 /*launch_conf_name_praefect        = "ec2-praefect-launch-configuration"
 autoscaling_group_name_praefect    = "ec2-praefect-asg"
 min_size_praefect                  = 2
@@ -95,7 +95,7 @@ instance_profile_gitlay             = "ec2gitlay-ssm-profile"
 gitlay_ami                          = "ami-0083072ac3e41100a"
 gitlay_instance_type                = "c5.large"
 gitlay_delete_on_termination        = false
-ec2gitlay_tags                      = [ "awsgov_ec2gitlay1_usw_ccoe_prd_001","awsgov_ec2gitlay2_usw_ccoe_prd_001","awsgov_ec2gitlay3_usw_ccoe_prd_001" ]
+ec2gitlay_tags                      = [ "awsvmlnpegitl01","awsvmlnpegitl01","awsvmlnpegitl01" ]
 gitlay_ebs_volume_size              = 50
 
 #alb rails
