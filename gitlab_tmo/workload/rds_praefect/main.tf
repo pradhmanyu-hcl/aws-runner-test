@@ -51,7 +51,7 @@ resource "aws_iam_role" "rds_praefect" {
 #iam policy attachment
 resource "aws_iam_role_policy_attachment" "rds_praefect" {
   role = aws_iam_role.rds_praefect.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole"
+  policy_arn = "arn:aws-us-gov:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole"
 }
 
 resource "aws_db_instance" "postgres_praefect" {

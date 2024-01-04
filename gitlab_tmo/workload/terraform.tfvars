@@ -1,4 +1,4 @@
-region = "us-west-2"
+region = "us-gov-west-1"
 
 # #vpc
 # vpc_cidr = "10.100.193.0/26"
@@ -13,7 +13,7 @@ region = "us-west-2"
 # #subnet
 # vpc_id = "vpc-0e621cf5158c9b9be"
 # vpc_cidr = "10.100.193.0/26"
-# availability_zone = [ "us-west-2a","us-west-2b" ]
+# availability_zone = [ "us-gov-west-1a","us-gov-west-1b" ]
 # pusnet_cidr = [ "10.100.193.0/27","10.100.193.32/27" ]
 # prsnet_cidr = [ "100.64.1.0/27","100.64.1.32/27" ]
 # dbsnet_cidr = [ "100.64.1.64/27","100.64.1.96/27" ]
@@ -41,7 +41,7 @@ sgec2_egress_protocol           = "-1"
 sgec2_tags                      = "awsgov_sgec2rails_usw_ccoe_prd_001"
 ssmrole_name                    = "rails-ssm-role"
 instance_profile                = "ec2rails-ssm-profile"
-ami                             = "ami-04b4d3355a2e2a403"
+ami                             = "ami-0083072ac3e41100a"
 instance_type                   = "c5.large"
 prsubnet_id                     = [ "value","value" ]
 delete_on_termination           = false
@@ -67,7 +67,7 @@ sgec2_praefect_egress_protocol     = "-1"
 sgec2_praefect_tags                = "awsgov_sgec2praefect_usw_ccoe_prd_001"
 ssmpraefectrole_name               = "praefect-ssm-role"
 instance_profile_praefect          = "ec2praefect-ssm-profile"
-praefect_ami                       = "ami-04b4d3355a2e2a403"
+praefect_ami                       = "ami-0083072ac3e41100a"
 praefect_instance_type             = "c5.large"
 praefect_delete_on_termination     = false
 ec2praefect_tags                   = [ "awsgov_ec2praefect1_usw_ccoe_prd_001","awsgov_ec2praefect2_usw_ccoe_prd_001","awsgov_ec2praefect3_usw_ccoe_prd_001"]
@@ -92,7 +92,7 @@ sgec2_gitlay_egress_protocol        = "-1"
 sgec2_gitlay_tags                   = "awsgov_sgec2gitlay_usw_ccoe_prd_001"
 ssmgitlayrole_name                  = "gitlay-ssm-role"
 instance_profile_gitlay             = "ec2gitlay-ssm-profile"
-gitlay_ami                          = "ami-04b4d3355a2e2a403"
+gitlay_ami                          = "ami-0083072ac3e41100a"
 gitlay_instance_type                = "c5.large"
 gitlay_delete_on_termination        = false
 ec2gitlay_tags                      = [ "awsgov_ec2gitlay1_usw_ccoe_prd_001","awsgov_ec2gitlay2_usw_ccoe_prd_001","awsgov_ec2gitlay3_usw_ccoe_prd_001" ]

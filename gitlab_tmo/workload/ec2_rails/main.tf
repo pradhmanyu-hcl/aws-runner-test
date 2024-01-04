@@ -42,7 +42,7 @@ resource "aws_iam_role" "ssmrole" {
 #ssm policy addition to the role
 resource "aws_iam_role_policy_attachment" "ssm" {
   role = aws_iam_role.ssmrole.id
-  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+  policy_arn = "arn:aws-us-gov:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
 #instance profile
